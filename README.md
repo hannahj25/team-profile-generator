@@ -11,6 +11,8 @@ Application which generates a HTML webpage displaying information about employee
 
 - [Usage](#usage)
 
+- [Testing](#testing)
+
 - [Built With](#built-with)
 
 - [License](#license)
@@ -33,7 +35,15 @@ Then follow through answering each prompt. Add as many team members as you need 
 
 For further help, the video below demonstrates how to use the app:
 
--insert video link here later!!-
+https://drive.google.com/file/d/1nedCL5FcSgXXYxcXengqJuDnfYUpDtyB/view
+
+## Testing
+Run command: 
+`npm run test`
+
+See video:
+
+https://drive.google.com/file/d/1PKinJYPK8axA-Xl3r6MUKnv4hC-NwoWR/view
 
 ## Built With
 JavaScript

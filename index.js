@@ -129,7 +129,7 @@ function createCards() {
                 <h6 class="card-subtitle mb-2 text-muted" style="font-weight:bold; font-size:24px">${employees[i].getRole()}</h6>
                  <p class="card-text">ID: ${employees[i].id}</p>
                  <p class="card-text">Email: <a class="card-text" href="mailto:${employees[i].email}">${employees[i].email}</a></p>
-                 <p class="card-text">Github: <a class="card-text" href="https://github.com/${employees[i].getGithub()}">Github: ${employees[i].getGithub()}</a></p>
+                 <p class="card-text">Github: <a class="card-text" href="https://github.com/${employees[i].getGithub()}">${employees[i].getGithub()}</a></p>
               </div>
            </div>
            </div>`
