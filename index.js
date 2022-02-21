@@ -85,7 +85,7 @@ const promptUser = () => {
         if (answers.another) {
             return promptUser();
         } else {
-            fs.writeFileSync(__dirname + '/dist/team.html', generateHTML, 'utf-8');
+            fs.writeFileSync(__dirname + '/dist/team.html', generateHTML(), 'utf-8');
             process.exit(0);
         }
 
@@ -94,8 +94,29 @@ const promptUser = () => {
     }) 
 }
 
-const generateHTML = (employees) =>
-`<!DOCTYPE html>
+
+
+function createCards() {
+    console.log(employees);
+    var cards = ""
+        for (let i = 0; i < employees.length; i++) {
+            const card = 
+            `<div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">${employees[i].name}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">${employees[i].getRole()}</h6>
+                 <p class="card-text">ID: ${employees[i].id}</p>
+                 <p class="card-text">Email: ${employees[i].email}</p>
+                 <p class="card-text">${employees[i].specialAttribute}</p>
+              </div>
+           </div>`
+           cards += card;
+        }
+        return cards;
+    }   
+
+
+const generateHTML  = () => `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -108,24 +129,13 @@ const generateHTML = (employees) =>
     <h1>My Team</h1>
   </div>
   <div>
-  ${employees}
+  ${createCards()}
   </div>
 </body>
 </html>`;
 
-// function createCards() {
-//     for (i = 1; i < employees.length; i++) {
-//         const card = 
-//         `<div class="card" style="width: 18rem;">
-//           <div class="card-body">
-//             <h5 class="card-title">${employees[0].name}</h5>
-//             <h6 class="card-subtitle mb-2 text-muted">Role</h6>
-//              <p class="card-text">ID: ${employees[0].id}</p>
-//              <p class="card-text">Email: ${employees[0].email}</p>
-//           </div>
-//        </div>`
-//     }
-// }
+
+
 
 const init = () => {
     promptUser();
