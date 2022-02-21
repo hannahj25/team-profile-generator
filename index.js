@@ -1,11 +1,14 @@
+// Set consts to require dependencies and imports
 const inquirer = require('inquirer');
 const fs = require('fs');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
+// Set empty array to store employees
 const employees = [];
 
+// Assigns class to each employee type
 const employeeMap = {
 
     "Manager": {
@@ -22,7 +25,7 @@ const employeeMap = {
     },
 }
 
-
+// Asks user for information
 const promptUser = () => {
     return inquirer.prompt ([
         {
@@ -72,16 +75,18 @@ const promptUser = () => {
     ])
     .then((answers) => {
 
-        
+        // creates new employee with user answers
         const employee = new employeeMap[answers.role].class(
             answers.name,
             answers.id,
             answers.email,
             answers[employeeMap[answers.role].specialAttribute]
         );
-
+        
+        // pushes new employee into employees array
         employees.push(employee);
-
+       
+        // if user wishes to add another employee; returns to start of questions. else exits and generates HTML
         if (answers.another) {
             return promptUser();
         } else {
@@ -96,7 +101,7 @@ const promptUser = () => {
 }
 
 
-
+// Function to create cards, filled in based on user's answers
 function createCards() {
     console.log(employees);
     var card = ""
@@ -149,7 +154,7 @@ function createCards() {
         return cards;
     }   
 
-
+//Generates HTML, calling the createCards function to populate card-group div with employee cards
 const generateHTML  = () => `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -169,8 +174,7 @@ const generateHTML  = () => `<!DOCTYPE html>
 </html>`;
 
 
-
-
+// Runs program
 const init = () => {
     promptUser();
     
