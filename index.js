@@ -100,6 +100,7 @@ function createCards() {
     console.log(employees);
     var cards = ""
         for (let i = 0; i < employees.length; i++) {
+            if (employees[i].role === 'manager') {
             const card = 
             `<div class="card" style="width: 18rem;">
               <div class="card-body">
@@ -107,9 +108,33 @@ function createCards() {
                 <h6 class="card-subtitle mb-2 text-muted">${employees[i].getRole()}</h6>
                  <p class="card-text">ID: ${employees[i].id}</p>
                  <p class="card-text">Email: ${employees[i].email}</p>
-                 <p class="card-text">${employees[i].specialAttribute}</p>
+                 <p class="card-text">Office Number: ${employees[i].getOfficeNumber()}</p>
+              </div>
+           </div>` }
+           else if (employees[i].role === 'engineer') {
+            const card = 
+            `<div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">${employees[i].name}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">${employees[i].getRole()}</h6>
+                 <p class="card-text">ID: ${employees[i].id}</p>
+                 <p class="card-text">Email: ${employees[i].email}</p>
+                 <p class="card-text">Github: ${employees[i].getGithub()}</p>
               </div>
            </div>`
+           }
+           else {
+            const card = 
+            `<div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">${employees[i].name}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">${employees[i].getRole()}</h6>
+                 <p class="card-text">ID: ${employees[i].id}</p>
+                 <p class="card-text">Email: ${employees[i].email}</p>
+                 <p class="card-text">School: ${employees[i].getSchool()}</p>
+              </div>
+           </div>`
+           }
            cards += card;
         }
         return cards;
