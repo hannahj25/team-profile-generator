@@ -105,9 +105,9 @@ function createCards() {
             if (employees[i].getRole() === 'Manager') {
             card = 
             `<div class="col">
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 18rem; box-shadow: 3px 3px 3px grey">
               <div class="card-body">
-                <h5 class="card-title">${employees[i].name}</h5>
+                <h5 class="card-title" style="background-color:#8BBEB2; padding:20px; text-align: center; border-radius: 10px">${employees[i].name}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">${employees[i].getRole()}</h6>
                  <p class="card-text">ID: ${employees[i].id}</p>
                  <a class="card-text" href="mailto:${employees[i].email}">Email: ${employees[i].email}</a>
@@ -118,13 +118,13 @@ function createCards() {
            else if (employees[i].getRole() === 'Engineer') {
             card = 
             `<div class="col">
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 18rem; box-shadow: 3px 3px 3px grey">
               <div class="card-body">
-                <h5 class="card-title">${employees[i].name}</h5>
+                <h5 class="card-title" style="background-color:#8BBEB2; padding:20px; text-align: center; border-radius: 10px">${employees[i].name}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">${employees[i].getRole()}</h6>
                  <p class="card-text">ID: ${employees[i].id}</p>
                  <a class="card-text" href="mailto:${employees[i].email}">Email: ${employees[i].email}</a>
-                 <a class="card-text" href="https://github.com/${employees[i].getGithub()}">Github: ${exmployees[i].getGithub()}</a>
+                 <a class="card-text" href="https://github.com/${employees[i].getGithub()}">Github: ${employees[i].getGithub()}</a>
                  <p class="card-text">Github: ${employees[i].getGithub()}</p>
               </div>
            </div>
@@ -133,9 +133,9 @@ function createCards() {
            else if (employees[i].getRole() === 'Intern') {
             card = 
             `<div class = "col">
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 18rem; box-shadow: 3px 3px 3px grey;">
               <div class="card-body">
-                <h5 class="card-title">${employees[i].name}</h5>
+                <h5 class="card-title" style="background-color:#8BBEB2; padding:20px; text-align: center; border-radius: 10px">${employees[i].name}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">${employees[i].getRole()}</h6>
                  <p class="card-text">ID: ${employees[i].id}</p>
                  <a class="card-text" href="mailto:${employees[i].email}">Email: ${employees[i].email}</a>
@@ -159,10 +159,10 @@ const generateHTML  = () => `<!DOCTYPE html>
   <title>Team</title>
 </head>
 <body>
-  <div class="jumbotron jumbotron-fluid">
-    <h1 class="display-4">My Team</h1>
+  <div class="jumbotron jumbotron-fluid" style="background-color: #18314F">
+    <h1 class="display-4" style="text-align:center; color:white;">My Team</h1>
   </div>
-  <div class="row">
+  <div class="card-group">
   ${createCards()}
   </div>
 </body>
