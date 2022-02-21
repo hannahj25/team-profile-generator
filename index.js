@@ -112,10 +112,10 @@ function createCards() {
             `<div class="col">
             <div class="card" style="width: 18rem; box-shadow: 3px 3px 3px grey">
               <div class="card-body">
-                <h5 class="card-title" style="background-color:#8BBEB2; padding:20px; text-align: center; border-radius: 10px">${employees[i].name}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">${employees[i].getRole()}</h6>
+                <h5 class="card-title" style="background-color:#8BBEB2; padding:20px; text-align: center; border-radius: 10px; font-weight:bold; font-size:30px;">${employees[i].name}</h5>
+                <h6 class="card-subtitle mb-2 text-muted" style="font-weight:bold; font-size:24px">${employees[i].getRole()}</h6>
                  <p class="card-text">ID: ${employees[i].id}</p>
-                 <a class="card-text" href="mailto:${employees[i].email}">Email: ${employees[i].email}</a>
+                 <p class="card-text">Email: <a class="card-text" href="mailto:${employees[i].email}">${employees[i].email}</a></p>
                  <p class="card-text">Office Number: ${employees[i].getOfficeNumber()}</p>
               </div>
            </div>
@@ -125,12 +125,11 @@ function createCards() {
             `<div class="col">
             <div class="card" style="width: 18rem; box-shadow: 3px 3px 3px grey">
               <div class="card-body">
-                <h5 class="card-title" style="background-color:#8BBEB2; padding:20px; text-align: center; border-radius: 10px">${employees[i].name}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">${employees[i].getRole()}</h6>
+                <h5 class="card-title" style="background-color:#8BBEB2; padding:20px; text-align: center; border-radius: 10px; font-weight:bold; font-size:30px;">${employees[i].name}</h5>
+                <h6 class="card-subtitle mb-2 text-muted" style="font-weight:bold; font-size:24px">${employees[i].getRole()}</h6>
                  <p class="card-text">ID: ${employees[i].id}</p>
-                 <a class="card-text" href="mailto:${employees[i].email}">Email: ${employees[i].email}</a>
-                 <a class="card-text" href="https://github.com/${employees[i].getGithub()}">Github: ${employees[i].getGithub()}</a>
-                 <p class="card-text">Github: ${employees[i].getGithub()}</p>
+                 <p class="card-text">Email: <a class="card-text" href="mailto:${employees[i].email}">${employees[i].email}</a></p>
+                 <p class="card-text">Github: <a class="card-text" href="https://github.com/${employees[i].getGithub()}">Github: ${employees[i].getGithub()}</a></p>
               </div>
            </div>
            </div>`
@@ -140,10 +139,10 @@ function createCards() {
             `<div class = "col">
             <div class="card" style="width: 18rem; box-shadow: 3px 3px 3px grey;">
               <div class="card-body">
-                <h5 class="card-title" style="background-color:#8BBEB2; padding:20px; text-align: center; border-radius: 10px">${employees[i].name}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">${employees[i].getRole()}</h6>
+                <h5 class="card-title" style="background-color:#8BBEB2; padding:20px; text-align: center; border-radius: 10px; font-weight:bold; font-size:30px;">${employees[i].name}</h5>
+                <h6 class="card-subtitle mb-2 text-muted" style="font-weight:bold; font-size:24px">${employees[i].getRole()}</h6>
                  <p class="card-text">ID: ${employees[i].id}</p>
-                 <a class="card-text" href="mailto:${employees[i].email}">Email: ${employees[i].email}</a>
+                 <p class="card-text">Email: <a class="card-text" href="mailto:${employees[i].email}">${employees[i].email}</a></p>
                  <p class="card-text">School: ${employees[i].getSchool()}</p>
               </div>
            </div>
