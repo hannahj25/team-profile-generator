@@ -85,6 +85,7 @@ const promptUser = () => {
         if (answers.another) {
             return promptUser();
         } else {
+            console.log(employees)
             fs.writeFileSync(__dirname + '/dist/team.html', generateHTML(), 'utf-8');
             process.exit(0);
         }
@@ -98,41 +99,49 @@ const promptUser = () => {
 
 function createCards() {
     console.log(employees);
+    var card = ""
     var cards = ""
         for (let i = 0; i < employees.length; i++) {
-            if (employees[i].role === 'manager') {
-            const card = 
-            `<div class="card" style="width: 18rem;">
+            if (employees[i].getRole() === 'Manager') {
+            card = 
+            `<div class="col">
+            <div class="card" style="width: 18rem;">
               <div class="card-body">
                 <h5 class="card-title">${employees[i].name}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">${employees[i].getRole()}</h6>
                  <p class="card-text">ID: ${employees[i].id}</p>
-                 <p class="card-text">Email: ${employees[i].email}</p>
+                 <a class="card-text" href="mailto:${employees[i].email}">Email: ${employees[i].email}</a>
                  <p class="card-text">Office Number: ${employees[i].getOfficeNumber()}</p>
               </div>
+           </div>
            </div>` }
-           else if (employees[i].role === 'engineer') {
-            const card = 
-            `<div class="card" style="width: 18rem;">
+           else if (employees[i].getRole() === 'Engineer') {
+            card = 
+            `<div class="col">
+            <div class="card" style="width: 18rem;">
               <div class="card-body">
                 <h5 class="card-title">${employees[i].name}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">${employees[i].getRole()}</h6>
                  <p class="card-text">ID: ${employees[i].id}</p>
-                 <p class="card-text">Email: ${employees[i].email}</p>
+                 <a class="card-text" href="mailto:${employees[i].email}">Email: ${employees[i].email}</a>
+                 <a class="card-text" href="https://github.com/${employees[i].getGithub()}">Github: ${exmployees[i].getGithub()}</a>
                  <p class="card-text">Github: ${employees[i].getGithub()}</p>
               </div>
+           </div>
            </div>`
            }
-           else {
-            const card = 
-            `<div class="card" style="width: 18rem;">
+           else if (employees[i].getRole() === 'Intern') {
+            card = 
+            `<div class = "col">
+            <div class="card" style="width: 18rem;">
               <div class="card-body">
                 <h5 class="card-title">${employees[i].name}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">${employees[i].getRole()}</h6>
                  <p class="card-text">ID: ${employees[i].id}</p>
-                 <p class="card-text">Email: ${employees[i].email}</p>
+                 <a class="card-text" href="mailto:${employees[i].email}">Email: ${employees[i].email}</a>
                  <p class="card-text">School: ${employees[i].getSchool()}</p>
               </div>
+           </div>
            </div>`
            }
            cards += card;
@@ -147,13 +156,13 @@ const generateHTML  = () => `<!DOCTYPE html>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <title>Document</title>
+  <title>Team</title>
 </head>
 <body>
   <div class="jumbotron jumbotron-fluid">
-    <h1>My Team</h1>
+    <h1 class="display-4">My Team</h1>
   </div>
-  <div>
+  <div class="row">
   ${createCards()}
   </div>
 </body>
