@@ -85,9 +85,7 @@ const promptUser = () => {
         if (answers.another) {
             return promptUser();
         } else {
-            // const html= generateHTML(employees);
-            const html = JSON.stringify(employees);
-            fs.writeFileSync(__dirname + '/dist/team.html', html, 'utf-8');
+            generateHTML();
             process.exit(0);
         }
 
@@ -96,8 +94,34 @@ const promptUser = () => {
     }) 
 }
 
-function generateHTML() {
+const generateHTML = (employees) =>
+`<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="jumbotron jumbotron-fluid">
+    <h1>My Team</h1>
+  </div>
+</body>
+</html>`;
 
-};
+function createCards() {
+    for (i = 1; i < employees.length; i++) {
+        const card = 
+        `<div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">${employees[0].name}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Role</h6>
+             <p class="card-text">ID: ${employees[0].id}</p>
+             <p class="card-text">Email: ${employees[0].email}</p>
+          </div>
+       </div>`
+    }
+}
 
 promptUser()
