@@ -90,7 +90,7 @@ const promptUser = () => {
         if (answers.another) {
             return promptUser();
         } else {
-            console.log(employees)
+            console.log('team.html successfully created!')
             fs.writeFileSync(__dirname + '/dist/team.html', generateHTML(), 'utf-8');
             process.exit(0);
         }
@@ -103,7 +103,6 @@ const promptUser = () => {
 
 // Function to create cards, filled in based on user's answers
 function createCards() {
-    console.log(employees);
     var card = ""
     var cards = ""
         for (let i = 0; i < employees.length; i++) {
